@@ -1,8 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.Models", "MyGarden.Models\MyGarden.Models.csproj", "{12B52886-C56E-4567-A380-11102E6F7DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.API", "MyGarden.API\MyGarden.API.csproj", "{A71DB0EF-B499-4BD6-ABB6-F096052C95BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGarden.Web", "MyGarden.Web\MyGarden.Web.csproj", "{3595D533-4758-4952-A5A1-781B37DB5372}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12B52886-C56E-4567-A380-11102E6F7DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B52886-C56E-4567-A380-11102E6F7DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B52886-C56E-4567-A380-11102E6F7DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B52886-C56E-4567-A380-11102E6F7DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71DB0EF-B499-4BD6-ABB6-F096052C95BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71DB0EF-B499-4BD6-ABB6-F096052C95BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71DB0EF-B499-4BD6-ABB6-F096052C95BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71DB0EF-B499-4BD6-ABB6-F096052C95BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3595D533-4758-4952-A5A1-781B37DB5372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3595D533-4758-4952-A5A1-781B37DB5372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3595D533-4758-4952-A5A1-781B37DB5372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3595D533-4758-4952-A5A1-781B37DB5372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
