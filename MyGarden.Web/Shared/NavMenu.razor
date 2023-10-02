@@ -1,6 +1,9 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">MyGarden.Web</a>
+        <a class="navbar-brand" href="" style="font-size: 24px">
+            <i class="fa-solid fa-seedling" style="color: #0AC007;"></i>
+            My Garden
+        </a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,17 +14,26 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+                <i class="fa-solid fa-chart-line" style="color: #ffffff;"></i>
+                <div class="ms-3">
+                    Dashboard
+                </div>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                <i class="fa-solid fa-seedling" style="color: #ffffff;"></i>
+                <div class="ms-3">
+                    Plants
+                </div>
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                <i class="fa-solid fa-list-check" style="color: #ffffff;"></i>
+                <div class="ms-3">
+                    To Do's
+                </div>
             </NavLink>
         </div>
     </nav>
