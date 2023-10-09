@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using MyGarden.API;
+
+using MyGarden.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddDbContext<GardenDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnect")));
+
+    var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

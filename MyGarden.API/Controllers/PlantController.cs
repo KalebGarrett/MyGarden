@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyGarden.Models;
@@ -18,12 +17,12 @@ public class PlantController : ControllerBase
     }
 
     [HttpGet("")]
-    public async Task<IActionResult> Get()
+    public async Task<ActionResult<Plant>> Get()
     {
         var plants = await _context.Plants.ToListAsync();
         return Ok(plants);
     }
-
+    
     [HttpGet("{id}")]
     public async Task<ActionResult<Plant>> Get(int id)
     {
