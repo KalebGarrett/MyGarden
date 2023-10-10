@@ -9,4 +9,5 @@ public class GardenDbContext : DbContext
     }
 
     public DbSet<Plant> Plants { get; set; }
+    public DbSet<ToDo> ToDo { get; set; }
 }

@@ -5,60 +5,60 @@ using MyGarden.Models;
 namespace MyGarden.API.Controllers;
 
 [ApiController]
-[Route("plants")]
-public class PlantController : ControllerBase
+[Route("todos")]
+public class ToDoController : ControllerBase
 {
     private readonly GardenDbContext _context;
 
-    public PlantController(GardenDbContext context)
+    public ToDoController(GardenDbContext context)
     {
         _context = context;
     }
-
+    
     [HttpGet("")]
-    public async Task<ActionResult<Plant>> Get()
+    public async Task<ActionResult<ToDo>> Get()
     {
-        var plant = await _context.Plants.ToListAsync();
+        var todo = await _context.ToDo.ToListAsync();
 
-        if (plant.Count == 0)
+        if (todo.Count == 0)
         {
             return NotFound();
         }
         
-        return Ok(plant);
+        return Ok(todo);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Plant>> Get(int id)
+    public async Task<ActionResult<ToDo>> Get(int id)
     {
-        var plant = await _context.Plants.FindAsync(id);
+        var todo = await _context.ToDo.FindAsync(id);
 
-        if (plant == null)
+        if (todo == null)
         {
             return NotFound();
         }
 
-        return Ok(plant);
+        return Ok(todo);
     }
 
     [HttpPost("")]
-    public async Task<ActionResult<Plant>> Create(Plant plant)
+    public async Task<ActionResult<ToDo>> Create(ToDo toDo)
     {
-        _context.Plants.Add(plant);
+        _context.ToDo.Add(toDo);
         await _context.SaveChangesAsync();
         
-        return CreatedAtAction(nameof(Get), new {id = plant.Id}, plant);
+        return CreatedAtAction(nameof(Get), new {id = toDo.Id}, toDo);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, Plant plant)
+    public async Task<IActionResult> Update(int id, ToDo toDo)
     {
-        if (id != plant.Id)
+        if (id != toDo.Id)
         {
             return BadRequest();
         }
 
-        _context.Entry(plant).State = EntityState.Modified;
+        _context.Entry(toDo).State = EntityState.Modified;
 
         try
         {
@@ -66,7 +66,7 @@ public class PlantController : ControllerBase
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!PlantExists(id))
+            if (!ToDoExists(id))
             {
                 return NotFound(); 
             }
@@ -78,21 +78,21 @@ public class PlantController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var plant = await _context.Plants.FindAsync(id);
+        var todo = await _context.ToDo.FindAsync(id);
 
-        if (plant == null)
+        if (todo == null)
         {
             return NotFound(); 
         }
 
-        _context.Plants.Remove(plant);
+        _context.ToDo.Remove(todo);
         await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
-    private bool PlantExists(int id)
+    private bool ToDoExists(int id)
     {
-        return _context.Plants.Any(p => p.Id == id);
+        return _context.ToDo.Any(p => p.Id == id);
     }
 }

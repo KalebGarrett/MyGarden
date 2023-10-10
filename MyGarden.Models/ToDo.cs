@@ -2,7 +2,8 @@
 
 public class ToDo
 {
-    public string Text { get; set; }
+    public int Id { get; set; }
+    public string Description { get; set; }
     public DateTime CreatedOn { get; set; } = DateTime.Now;
-    public bool AllowEdit { get; set; }
+    public DateTime DueDate { get; set; }
 }
