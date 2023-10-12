@@ -2,4 +2,82 @@
 
 <PageTitle>Dashboard</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Dashboard</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="mt-4">Plants</h2>
+        @foreach (var plant in Plants)
+        {
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">
+                            <i class="fa-solid fa-seedling" style="color: black;"></i>
+                            <b>@plant.Name</b>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Date Planted: @plant.PlantingDate.ToString("MM/dd/yyyy")</b>
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: @GrowthProgress(plant)%;" aria-valuenow="@GrowthProgress(plant)" aria-valuemin="0" aria-valuemax="100">
+                                @GrowthProgress(plant)%
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-dark w-100 mt-3 opacity-75" data-bs-toggle="collapse" data-bs-target="@($"#collapse-{plant.Id}")">More Info</button>
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="@($"collapse-{plant.Id}")">
+                            <b>
+                                <p class="card-text mt-3">Growth Duration (days): @plant.GrowthDuration</p>
+                                <p class="card-text">Watering Schedule (days): @plant.WateringSchedule</p>
+                                <p class="card-text">Description: @plant.Description</p>
+                            </b>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/updateplant/@plant.Id">
+                            <i class="fa-solid fa-pen-to-square" style="color: #28A745; font-size: 17px"></i>
+                        </a>
+                        <a @onclick="() => DeletePlant(plant.Id)">
+                            <i class="fa-solid fa-trash text-danger" style="font-size: 17px"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        <h2 class="mt-4">To do's</h2>
+        @foreach (var todo in ToDos)
+        {
+            <div class="col-md-12 mb-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="card-text">
+                                    <i class="fa-solid fa-bell" style="color: #28A745; font-size: 17px"></i> <b>@todo.Description</b>
+                                </p>
+                                <p class="card-text @(IsOverdue(todo.DueDate) ? "text-danger" : "")">
+                                    <b>Scheduled to: @todo.DueDate.ToString("MM/dd/yyyy hh:mm tt")</b>
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <i class="fa-solid fa-pen-to-square" style="color: #28A745; font-size: 17px"></i>
+                                <br/>
+                                <i class="fa-solid fa-check" style="color: #28A745; font-size: 17px"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

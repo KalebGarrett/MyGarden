@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MyGarden.Models\MyGarden.Models.csproj" />
+    </ItemGroup>
+
 </Project>
