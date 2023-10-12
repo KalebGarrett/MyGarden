@@ -1,0 +1,37 @@
+﻿@page "/updateplant/{Id}"
+
+<PageTitle>Update Plant</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="text-center">Update Plant</h1>
+        <form @onsubmit="UpdatePlantDb">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" @bind="Plant.Name"/>
+            </div>
+            <div class="form-group">
+                <label for="description" class="mt-3">Description</label>
+                <input type="text" class="form-control" id="description" @bind="Plant.Description"/>
+            </div>
+            <div class="form-group">
+                <label for="plantingDate" class="mt-3">Planting Date</label>
+                <input type="date" class="form-control" id="plantingDate" @bind="Plant.PlantingDate"/>
+            </div>
+            <div class="form-group">
+                <label for="growthDuration" class="mt-3">Growth Duration (days)</label>
+                <input type="number" class="form-control" id="growthDuration" @bind="Plant.GrowthDuration"/>
+            </div>
+            <div class="form-group">
+                <label for="wateringSchedule" class="mt-3">Watering Schedule (e.g., daily, weekly)</label>
+                <input type="text" class="form-control" id="wateringSchedule" @bind="Plant.WateringSchedule"/>
+            </div>
+            <button type="submit" class="btn btn-success mt-2 justify-content-center">Update</button>
+        </form>
+
+        @if (Updated)
+        {
+            <p class="text-success mt-2">Plant updated successfully!</p>
+        }
+    </div>
+</div>

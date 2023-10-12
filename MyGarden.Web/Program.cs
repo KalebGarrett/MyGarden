@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using MyGarden.Web.Data;
+using MyGarden.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddSingleton(sp => new HttpClient {BaseAddress = new Uri("https://mygardenapi.azurewebsites.net/index.html")});
+builder.Services.AddSingleton<PlantService>();
+builder.Services.AddSingleton<ToDoService>();
 
 var app = builder.Build();
 
