@@ -7,12 +7,12 @@
         <h1 class="text-center">Add To do</h1>
         <form @onsubmit="AddToDoToDb">
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" @bind="ToDo.Description" placeholder="Add details..."/>
+                <label for="description">Description*</label>
+                <input type="text" class="form-control" id="description" @bind="ToDo.Description" placeholder="Add details..." required="required"/>
             </div>
             <div class="form-group">
-                <label for="dueDate" class="mt-3">Due Date</label>
-                <input type="datetime-local" class="form-control" id="dueDate" @bind="ToDo.DueDate"/>
+                <label for="dueDate" class="mt-3">Due Date*</label>
+                <input type="datetime-local" class="form-control" id="dueDate" @bind="ToDo.DueDate" required="required"/>
             </div>
             <button type="submit" class="btn btn-success mt-2 justify-content-center">Add ToDo</button>
 
