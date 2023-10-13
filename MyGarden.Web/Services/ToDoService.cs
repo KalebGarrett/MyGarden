@@ -42,4 +42,34 @@ public class ToDoService
 
         return null;
     }
+    
+    public async Task<ToDo> Create(ToDo toDo)
+    {
+        var json = JsonSerializer.Serialize(toDo);
+        var result = await _httpClient.PostAsync("todos", new StringContent(json, Encoding.UTF8, "application/json"));
+        if (!result.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
+        return toDo;
+    }
+    
+      
+    public async Task<ToDo> Update(string id, ToDo toDo)
+    {
+        var json = JsonSerializer.Serialize(toDo);
+        var result = await _httpClient.PutAsync($"todos/{id}", new StringContent(json, Encoding.UTF8, "application/json"));
+        if (!result.IsSuccessStatusCode)
+        {
+            return null;
+        }
+        return toDo;
+    }
+
+    public async Task<bool> Delete(string id)
+    {
+        var result = await _httpClient.DeleteAsync($"todos/{id}");
+        return result.IsSuccessStatusCode;
+    }
 }
