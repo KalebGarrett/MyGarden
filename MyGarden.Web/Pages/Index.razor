@@ -70,9 +70,13 @@
                                 </p>
                             </div>
                             <div class="col-md-6 text-end">
-                                <i class="fa-solid fa-pen-to-square" style="color: #28A745; font-size: 17px"></i>
+                                <a href="/updatetodo/@todo.Id">
+                                    <i class="fa-solid fa-pen-to-square" style="color: #28A745; font-size: 17px"></i>
+                                </a>
                                 <br/>
-                                <i class="fa-solid fa-check" style="color: #28A745; font-size: 17px"></i>
+                                <a @onclick="() => DeleteToDo(todo.Id)">
+                                    <i class="fa-solid fa-check" style="color: #28A745; font-size: 17px"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

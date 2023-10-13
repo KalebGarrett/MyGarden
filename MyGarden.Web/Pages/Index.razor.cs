@@ -31,6 +31,16 @@ namespace MyGarden.Web.Pages
             }
         }
 
+        private async Task DeleteToDo(int toDoId)
+        {
+            var success = await _ToDoService.Delete(toDoId.ToString());
+
+            if (success)
+            {
+                ToDos = await _ToDoService.GetAll();
+            }
+        }
+
         private bool IsOverdue(DateTime dueDate)
         {
             return dueDate < DateTime.Now;
