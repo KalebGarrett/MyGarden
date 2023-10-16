@@ -7,9 +7,9 @@
 <div class="row">
     <div class="col-md-6">
         <h2 class="mt-4">Plants</h2>
-        @if (Plants == null)
+        @if (Plants.Count == 0)
         {
-            <p>No plants...</p>
+            <p class="lead">No plants...</p>
         }
         @foreach (var plant in Plants)
         {
@@ -59,9 +59,9 @@
     </div>
     <div class="col-md-6">
         <h2 class="mt-4">To do's</h2>
-        @if (ToDos == null)
+        @if (ToDos.Count == 0)
         {
-            <p>No to do's...</p>
+            <p class="lead">No to do's...</p>
         }
         @foreach (var todo in ToDos)
         {
