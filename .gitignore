@@ -257,9 +257,6 @@ paket-files/
 .idea/
 *.sln.iml
 
-# JavaScript File
-api-key.js
-
 # CodeRush
 .cr/
 
