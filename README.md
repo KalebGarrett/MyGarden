@@ -16,4 +16,4 @@ API Link:
 
 ## Screenshots
 
-![mygarden](https://github.com/KalebGarrett/MyGarden/assets/110064473/5acab677-208f-472e-aaa3-e9fb4e31a0ba)
+![image](/Images/mygarden.png)
